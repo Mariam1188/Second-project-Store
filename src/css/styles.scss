@@ -16,6 +16,7 @@ $trs: 0.3s;
 $tabletL: 1024px;
 $tabletM: 820px;
 $mobileL: 768px;
+$mobileM: 500px;
 
 @font-face {
     font-family: "poppins";
@@ -498,7 +499,7 @@ header {
 
                     a {
                         display: block;
-                        font-size: 12px;
+                        font-size: 14px;
 
                     }
 
@@ -513,26 +514,73 @@ header {
 
         @media screen and (max-width: $tabletM) {
             flex-wrap: wrap-reverse;
-            justify-content: center;
+            justify-content: start;
+            align-items: center;
 
             .header__menu {
+                display: flex;
+                gap: 8px;
+                margin: 0;
+                overflow-y: hidden;
+                overflow-x: auto;
+                cursor: pointer;
+                width: 100%;
+
+                &::-webkit-scrollbar {
+                    height: 6px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: $mediumGrey;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: $grey;
+                    border-radius: $br;
+                }
+
+                &::-webkit-scrollbar-thumb:hover {
+                    background: $black;
+                }
+
+
+
                 &::after {
                     display: none;
                 }
 
                 .header__menu__item {
                     a {
-                       font-size: 16px;
+                        font-size: 14px;
                     }
+
                     .header__menu__item__open {
-                       svg {
-                        display: block;
-                       }
+                        svg {
+                            display: block;
+                            transform: rotate(90deg);
+                        }
                     }
                 }
             }
+
             .header__slider {
                 height: auto;
+            }
+        }
+    }
+
+    @media screen and (max-width: $tabletM) {
+        .container {
+            gap: 8px;
+            margin-top: -18px;
+            padding: 0px 16px;
+
+            .header__menu {
+                .header__menu__item {
+                    a {
+                        font-size: 12px;
+                    }
+                }
             }
         }
     }
